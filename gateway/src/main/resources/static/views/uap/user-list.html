@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-12">
+        <a class="button" href="javascript:void(0)" ng-click="newuser()">新用户</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div ui-grid="gridOptions" class="myGrid"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table>
+            <thead>
+            <tr>
+                <th>name</th>
+                <th>age</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in table">
+                <td>{{user.username+user.age}}</td>
+                <td>{{user.age}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12"><select ng-model="result.age" >
+        <option ng-repeat="user in gridOptions.data" value="{{user.age}}">{{user.username}}</option>
+    </select></div>
+</div>
+<label>{{result.age}}</label>
+<a ng-click="clickme()">点我</a>
+<a ng-click="switch()">点我切换</a>

@@ -1,0 +1,42 @@
+<div>用户表单</div>
+<form role="form" class="form-horizontal">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="ctrl-username" class="col-sm-2 col-md-2 control-label">用户名</label>
+                <div class="col-sm-10 col-md-10">
+                    <input type="text" class="form-control" id="ctrl-username" placeholder="用户名" required ng-model="userinfo.username" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="ctrl-password" class="col-sm-2 col-md-2 control-label">密码</label>
+                <div class="col-sm-10 col-md-10">
+                    <input type="password" class="form-control" required id="ctrl-password" ng-model="userinfo.password" placeholder="密码">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="ctrl-repassword" class="col-sm-2 col-md-2 control-label">确认密码</label>
+                <div class="col-sm-10 col-md-10">
+                    <input type="password" class="form-control" required id="ctrl-repassword" name="repassword" placeholder="再次输入密码">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button class="button" ng-click="submit()">提交</button>
+        </div>
+    </div>
+
+</form>
+
+<a ng-click="tolist()">返回列表</a>

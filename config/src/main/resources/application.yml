@@ -1,0 +1,10 @@
+server:
+  port: 8000
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:/e:/configs
