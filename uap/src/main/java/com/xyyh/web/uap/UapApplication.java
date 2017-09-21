@@ -11,7 +11,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableReactor
 @EnableSwagger2
 @SpringBootApplication
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 @EnableCaching
 public class UapApplication {
 	public static void main(String[] args) {
