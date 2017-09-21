@@ -1,6 +1,5 @@
 package com.xyyh.web.uap.controller;
 
-import javax.enterprise.context.SessionScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.netflix.discovery.converters.Auto;
 import com.xyyh.web.common.uap.dto.RoleDto;
 import com.xyyh.web.uap.converter.RoleConverter;
 import com.xyyh.web.uap.entity.Role;
@@ -19,7 +17,6 @@ import reactor.bus.EventBus;
 
 @RestController
 @RequestMapping("role")
-@SessionScoped
 public class RoleController {
 	@Autowired
 	private RoleService roleService;
