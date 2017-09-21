@@ -16,6 +16,7 @@
 		<commons-lang3.version>3.6</commons-lang3.version>
 		<commons-collections4.version>4.1</commons-collections4.version>
 		<ehcache.version>3.4.0</ehcache.version>
+		<swagger.version>2.7.0</swagger.version>
 	</properties>
 
 	<modules>
@@ -82,14 +83,14 @@
 			<dependency>
 				<groupId>io.springfox</groupId>
 				<artifactId>springfox-swagger2</artifactId>
-				<version>2.5.0</version>
+				<version>${swagger.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>io.springfox</groupId>
 				<artifactId>springfox-swagger-ui</artifactId>
-				<version>2.5.0</version>
+				<version>${swagger.version}</version>
 			</dependency>
- 
+
 		</dependencies>
 	</dependencyManagement>
 
