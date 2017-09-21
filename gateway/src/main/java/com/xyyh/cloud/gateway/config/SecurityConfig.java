@@ -1,4 +1,4 @@
-package com.xyyh.web.gateway.config;
+package com.xyyh.cloud.gateway.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;

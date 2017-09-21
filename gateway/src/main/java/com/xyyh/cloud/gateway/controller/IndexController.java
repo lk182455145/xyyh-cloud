@@ -1,4 +1,4 @@
-package com.xyyh.web.gateway.controller;
+package com.xyyh.cloud.gateway.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

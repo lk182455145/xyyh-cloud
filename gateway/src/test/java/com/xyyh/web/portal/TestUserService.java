@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.xyyh.web.gateway.service.UserService;
+import com.xyyh.cloud.gateway.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest

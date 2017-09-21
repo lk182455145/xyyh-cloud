@@ -1,4 +1,4 @@
-package com.xyyh.web.gateway.config;
+package com.xyyh.cloud.gateway.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

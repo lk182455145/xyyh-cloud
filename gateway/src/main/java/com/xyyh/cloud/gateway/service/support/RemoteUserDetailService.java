@@ -1,4 +1,4 @@
-package com.xyyh.web.gateway.service.support;
+package com.xyyh.cloud.gateway.service.support;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.xyyh.cloud.gateway.service.UserService;
 import com.xyyh.web.common.uap.dto.UserDetailsDto;
-import com.xyyh.web.gateway.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 

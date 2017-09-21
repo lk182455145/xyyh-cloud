@@ -1,4 +1,4 @@
-package com.xyyh.web.gateway.security;
+package com.xyyh.cloud.gateway.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -8,7 +8,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.xyyh.web.gateway.service.UserService;
+import com.xyyh.cloud.gateway.service.UserService;
 
 @Component("authenticationProvider")
 public class RemoteUserDetailsAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {

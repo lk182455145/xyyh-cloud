@@ -1,4 +1,4 @@
-package com.xyyh.web.gateway.service;
+package com.xyyh.cloud.gateway.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

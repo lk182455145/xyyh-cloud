@@ -1,4 +1,4 @@
-package com.xyyh.web.gateway.controller;
+package com.xyyh.cloud.gateway.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.xyyh.web.gateway.service.UserService;
+import com.xyyh.cloud.gateway.service.UserService;
 
 @RestController
 public class UserController {
