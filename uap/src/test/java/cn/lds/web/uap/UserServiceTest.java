@@ -13,17 +13,12 @@ import com.xyyh.web.common.uap.dto.UserDto;
 import com.xyyh.web.uap.UapApplication;
 import com.xyyh.web.uap.services.UserService;
 
-import reactor.Environment;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = UapApplication.class)
 public class UserServiceTest {
 
 	@Autowired
 	private UserService userService;
-
-	@Autowired
-	private Environment environment;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -47,11 +42,6 @@ public class UserServiceTest {
 	@Test
 	public void testChangePassword() {
 		userService.changePasswordById(12, "good");
-	}
-
-	@Test
-	public void testReactor() {
-		System.out.println(environment);
 	}
 
 	@Test

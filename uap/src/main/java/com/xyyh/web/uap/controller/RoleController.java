@@ -11,9 +11,7 @@ import com.xyyh.web.common.uap.dto.RoleDto;
 import com.xyyh.web.uap.converter.RoleConverter;
 import com.xyyh.web.uap.entity.Role;
 import com.xyyh.web.uap.services.RoleService;
-
-import reactor.bus.Event;
-import reactor.bus.EventBus;
+ 
 
 @RestController
 @RequestMapping("role")
@@ -21,9 +19,7 @@ public class RoleController {
 	@Autowired
 	private RoleService roleService;
 
-	@Autowired
-	private EventBus bus;
-
+ 
 	@Autowired
 	private RoleConverter roleConverter;
 
@@ -37,8 +33,5 @@ public class RoleController {
 		}
 	}
 
-	@RequestMapping(value = "test", method = RequestMethod.GET)
-	public void test() {
-		bus.notify("test", Event.wrap("msg"));
-	}
+ 
 }

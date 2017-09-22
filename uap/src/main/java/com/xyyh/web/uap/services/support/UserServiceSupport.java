@@ -1,9 +1,10 @@
 package com.xyyh.web.uap.services.support;
 
+import javax.cache.annotation.CacheRemoveAll;
+import javax.cache.annotation.CacheResult;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -35,7 +36,7 @@ public class UserServiceSupport implements UserService {
 
 	@Override
 	@Transactional
-	@CachePut(cacheNames = "user", key = "#result.username")
+	@CacheRemoveAll(cacheName = "user")
 	public User save(UserDto user) {
 		String password = user.getPassword();
 		if (StringUtils.isBlank(password)) {
@@ -53,7 +54,7 @@ public class UserServiceSupport implements UserService {
 
 	@Override
 	@Transactional
-	@CachePut(cacheNames = "user", key = "#result.useranme")
+	@CacheRemoveAll(cacheName = "user")
 	public User update(UserDto user) {
 		User user_ = userRepository.getOne(user.getId());
 		if (user_ != null) {
@@ -72,7 +73,7 @@ public class UserServiceSupport implements UserService {
 	}
 
 	@Override
-	@Cacheable("user")
+	@CacheResult(cacheName = "user")
 	public User loadByUserName(String username) {
 		return userRepository.findByUsername(username);
 	}

@@ -35,7 +35,6 @@ public class UserConverter extends AbstractConverter<User, UserDto> {
 	 * 不会复制ID和密码属性
 	 */
 	@Override
-	@Scheduled
 	public void copyProperties(final User dest, final UserDto source) {
 		if (source != null && dest != null) {
 			dest.setCredentialsExpired(source.isCredentialsExpired());

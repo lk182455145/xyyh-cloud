@@ -40,13 +40,13 @@ public class PasswordEncoderTest {
 
 	}
 
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		ExecutorService executorService = Executors.newFixedThreadPool(5);
 		final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		for (int i = 0; i < 5; i++) {
 			executorService.execute(new Mathcer(passwordEncoder));
 		}
-	}
+	}*/
 
 	private static class Mathcer implements Runnable {
 		private final PasswordEncoder passwordEncoder;

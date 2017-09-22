@@ -1,5 +1,6 @@
 package com.xyyh.web.uap.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -18,7 +19,12 @@ import lombok.Data;
 
 @Entity(name = "user_")
 @Data
-public class User  {
+public class User implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "id_")
