@@ -1,5 +1,6 @@
 package com.xyyh.web.uap.services.support;
 
+import javax.cache.annotation.CacheRemove;
 import javax.cache.annotation.CacheRemoveAll;
 import javax.cache.annotation.CacheResult;
 

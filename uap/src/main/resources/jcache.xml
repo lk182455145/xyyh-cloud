@@ -5,8 +5,7 @@
         http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.2.xsd
         http://www.ehcache.org/v3/jsr107 http://www.ehcache.org/schema/ehcache-107-ext-3.2.xsd">
 	<service>
-		<jcache:defaults>
-			<jcache:cache name="user" template="default" />
+		<jcache:defaults default-template="default">
 		</jcache:defaults>
 
 	</service>
@@ -14,7 +13,5 @@
 	<cache-template name="default">
 		<heap unit="MB">50</heap>
 	</cache-template>
-
-	<cache alias="user" uses-template="default"></cache>
 
 </config>
