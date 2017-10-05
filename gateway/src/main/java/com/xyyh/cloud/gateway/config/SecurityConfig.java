@@ -7,25 +7,30 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import com.xyyh.cloud.gateway.security.RemoteUserDetailsAuthenticationProvider;
+import com.xyyh.cloud.gateway.service.UserService;
+
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private AuthenticationProvider authenticationProvider;
+	private UserService userDetailsService;
 
-	public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.authenticationProvider(authenticationProvider);
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests().antMatchers("/**").hasAnyRole("ADMIN", "USER").and().formLogin().and()
+				.httpBasic().disable();
+		http.csrf().disable();
 	}
 
 	@Override
-	
-	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-				.antMatchers("/**").hasAnyAuthority("USER", "ADMIN")
-				.and().formLogin().loginPage("/login").permitAll()
-				.and().httpBasic();
-		http.csrf().disable();
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.authenticationProvider(authenticationProvider());
+	}
 
-		// http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+	private AuthenticationProvider authenticationProvider() {
+		RemoteUserDetailsAuthenticationProvider ruda = new RemoteUserDetailsAuthenticationProvider();
+		ruda.setUserService(userDetailsService);
+		return ruda;
 	}
 }

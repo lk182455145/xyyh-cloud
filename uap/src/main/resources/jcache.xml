@@ -11,6 +11,9 @@
 	</service>
 
 	<cache-template name="default">
+		<expiry>
+			<ttl unit="seconds">30</ttl>
+		</expiry>
 		<heap unit="MB">50</heap>
 	</cache-template>
 

@@ -1,6 +1,5 @@
 package com.xyyh.cloud.gateway.service;
 
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
@@ -9,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  * @author LiDong
  *
  */
+
 public interface UserService extends UserDetailsService {
 	/**
 	 * 校验用户的密码
@@ -17,5 +17,6 @@ public interface UserService extends UserDetailsService {
 	 * @param password
 	 * @return
 	 */
-	public boolean passwordCheck(UserDetails user, String password);
+	public boolean passwordCheck(String username, String password);
+
 }
