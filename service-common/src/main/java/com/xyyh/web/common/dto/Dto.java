@@ -7,8 +7,6 @@ import java.io.Serializable;
  * 
  * @author LiDong
  *
- * @param <M>
- *            表示一个模型类
  */
 public interface Dto extends Serializable {
 
