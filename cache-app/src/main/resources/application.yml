@@ -1,0 +1,12 @@
+server:
+  port: 8088
+spring:
+  cache:
+    type: redis
+#    cache-names:
+#    - testCache
+#    jcache:
+#      config: classpath:cache.xml
+  redis:
+    host: 127.0.0.1
+    port: 6379
