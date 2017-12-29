@@ -10,6 +10,6 @@ public class Consumer {
 	@RabbitHandler
 	@RabbitListener(queues = "good")
 	public void handler(String message) {
-		System.out.println(message);
+		System.out.println("recive message from " + message);
 	}
 }
