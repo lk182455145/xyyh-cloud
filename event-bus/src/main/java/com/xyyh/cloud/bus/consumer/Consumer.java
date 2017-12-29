@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Consumer {
 
+	/**
+	 * 定义一个消费者
+	 * @param message
+	 */
 	@RabbitHandler
 	@RabbitListener(queues = "good")
 	public void handler(String message) {
