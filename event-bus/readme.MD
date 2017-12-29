@@ -1,5 +1,14 @@
-#spring-cloud-bus
+#简简单单spring-boot整合RabbitMQ
 ## rabbitmq使用
+
+* 导入依赖
+```xml
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-amqp</artifactId>
+</dependency>
+```
+
 * 修改application.yml
 ```yaml
 spring:
