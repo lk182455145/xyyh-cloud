@@ -27,6 +27,7 @@
 		<module>service-common</module>
 		<module>uap</module>
 		<module>uap-common</module>
+		<module>event-bus</module>
 	</modules>
 
 	<dependencyManagement>
