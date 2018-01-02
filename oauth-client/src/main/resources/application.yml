@@ -1,0 +1,13 @@
+server:
+  port: 8082
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:8080/oauth/token
+      client-id: client
+      client-secret: test
+      user-authorization-uri: http://localhost:8080/oauth/authorize
+    resource:
+#      token-info-uri: 
+      user-info-uri: http://localhost:8080/test
+      

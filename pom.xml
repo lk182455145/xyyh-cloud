@@ -29,6 +29,9 @@
 		<module>uap</module>
 		<module>uap-common</module>
 		<module>event-bus</module>
+		<module>oauth-server</module>
+		<module>auth-resource</module>
+		<module>oauth-client</module>
 	</modules>
 
 	<dependencyManagement>

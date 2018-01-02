@@ -1,6 +1,6 @@
 spring:
   rabbitmq:
-    host: 127.0.0.1
+    host: 192.168.0.13
     port: 5672
     username: lidong
     password: lidong
