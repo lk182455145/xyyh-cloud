@@ -2,12 +2,10 @@ package com.xyyh.cloud.auth.server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
@@ -32,11 +30,17 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+		// clients.configure(builder);
+		// clients.and().jdbc().clients(clientDetailsService);
 		clients.inMemory()
 				.withClient("client")
 				.secret("test")
 				.authorizedGrantTypes("authorization_code")
-				.scopes("app");
+				.scopes("app", "cas")
+				// 是否启用自动授权
+				.autoApprove(false).autoApprove("cas");
+		// clients.withClientDetails(clientDetailsService);
+
 	}
 
 	@Override
@@ -54,7 +58,7 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
 	@Bean
 	public JwtAccessTokenConverter tokenConverter() {
-		JwtAccessTokenConverter converter=new JwtAccessTokenConverter();
+		JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
 		converter.setSigningKey("good");
 		return converter;
 	}

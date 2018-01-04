@@ -1,13 +1,22 @@
 package com.xyyh.cloud.auth.server.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import com.xyyh.cloud.auth.server.security.RemoteUserDetailsAuthenticationProvider;
+import com.xyyh.cloud.auth.server.services.UserService;
+
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	@Autowired
+	private UserService userService;
+	
 	/**
 	 * 配置登录页面
 	 * 
@@ -27,6 +36,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");
+		auth.authenticationProvider(authenticationProvider());
+	}
+
+	@Bean
+	public AuthenticationProvider authenticationProvider() {
+		RemoteUserDetailsAuthenticationProvider ruda = new RemoteUserDetailsAuthenticationProvider();
+		ruda.setUserService(userService);
+		return ruda;
 	}
 }
