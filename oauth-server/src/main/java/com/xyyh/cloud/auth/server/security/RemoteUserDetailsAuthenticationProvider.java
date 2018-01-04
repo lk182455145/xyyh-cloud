@@ -5,6 +5,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.xyyh.cloud.auth.server.services.UserService;
 
@@ -36,7 +37,10 @@ public class RemoteUserDetailsAuthenticationProvider extends AbstractUserDetails
 	@Override
 	protected UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken authentication)
 			throws AuthenticationException {
-		return userService.loadUserByUsername(username);
+		try {
+			return userService.loadUserByUsername(username);
+		} catch (Exception e) {
+			throw new UsernameNotFoundException("指定用户" + username + "没有找到,", e);
+		}
 	}
-
 }
