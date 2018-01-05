@@ -1,5 +1,7 @@
 package com.xyyh.cloud.auth.server.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -8,8 +10,13 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+
+import com.xyyh.cloud.auth.server.services.impl.ClientDetailsServiceImpl;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 这个类，主要做一些授权服务器的配置
@@ -19,7 +26,12 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
  */
 @Configuration
 @EnableAuthorizationServer
+@Slf4j
 public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
+
+	@Autowired
+	@Qualifier("localClientDetailsService")
+	private ClientDetailsService clientDetailsService;
 
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
@@ -30,17 +42,16 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		// clients.configure(builder);
-		// clients.and().jdbc().clients(clientDetailsService);
-		clients.inMemory()
-				.withClient("client")
-				.secret("test")
-				.authorizedGrantTypes("authorization_code")
-				.scopes("app", "cas")
-				// 是否启用自动授权
-				.autoApprove(false).autoApprove("cas");
-		// clients.withClientDetails(clientDetailsService);
-
+//		// clients.configure(builder);
+//		clients.inMemory()
+//				.withClient("client")
+//				.secret("test")
+//				.authorizedGrantTypes("authorization_code")
+//				.scopes("app", "cas")
+//				// 是否启用自动授权
+//				.autoApprove(false).autoApprove("cas");
+		log.info("use clientDetailsService" + clientDetailsService);
+		clients.withClientDetails(clientDetailsService);
 	}
 
 	@Override
@@ -62,4 +73,9 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 		converter.setSigningKey("good");
 		return converter;
 	}
+
+//	@Bean
+//	public ClientDetailsServiceImpl clientDetailsService() {
+//		return new ClientDetailsServiceImpl();
+//	}
 }

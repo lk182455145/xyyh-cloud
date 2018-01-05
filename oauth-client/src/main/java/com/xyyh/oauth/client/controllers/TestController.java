@@ -7,7 +7,6 @@ import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("test")
@@ -19,7 +18,7 @@ public class TestController {
 
 	@GetMapping
 	public String test() {
-		ResponseEntity<Object> response = template.getForEntity("http://localhost:8080/test", Object.class);
+		ResponseEntity<Object> response = template.getForEntity("http://localhost:8080/user", Object.class);
 		ResponseEntity<Object> response2 = template.getForEntity("http://localhost:8081/test", Object.class);
 
 		System.out.println(response);

@@ -1,13 +1,16 @@
 package com.xyyh.cloud.auth.server.converter;
 
+import org.springframework.stereotype.Component;
+
 import com.xyyh.cloud.auth.server.dto.ClientDetailsDto;
-import com.xyyh.cloud.auth.server.entity.ClientDetailEntity;
+import com.xyyh.cloud.auth.server.entity.ClientDetailsEntity;
 import com.xyyh.web.common.converter.AbstractConverter;
 
-public class ClientDetailsConverter extends AbstractConverter<ClientDetailEntity, ClientDetailsDto> {
+@Component
+public class ClientDetailsConverter extends AbstractConverter<ClientDetailsEntity, ClientDetailsDto> {
 
 	@Override
-	public ClientDetailsDto toDto(ClientDetailEntity model) {
+	public ClientDetailsDto toDto(ClientDetailsEntity model) {
 		ClientDetailsDto dto = new ClientDetailsDto();
 		dto.setAuthorizedGrantTypes(model.getAuthorizedGrantTypes());
 		dto.setClientSecret(model.getClientSecret());
@@ -17,7 +20,7 @@ public class ClientDetailsConverter extends AbstractConverter<ClientDetailEntity
 	}
 
 	@Override
-	public void copyProperties(ClientDetailEntity dest, ClientDetailsDto source) {
+	public void copyProperties(ClientDetailsEntity dest, ClientDetailsDto source) {
 
 	}
 }

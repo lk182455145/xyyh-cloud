@@ -7,4 +7,4 @@ spring:
     config:
       server:
         native:
-          search-locations: file:e:/configs/
+          search-locations: classpath:/configs/

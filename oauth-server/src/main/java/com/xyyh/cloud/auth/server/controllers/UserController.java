@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping
-public class TestController {
+@RequestMapping("user")
+public class UserController {
 
-	@GetMapping("test")
+	@GetMapping
 	public Principal test(@AuthenticationPrincipal Principal userdetails) {
 		return userdetails;
 	}
