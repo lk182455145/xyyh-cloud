@@ -1,6 +1,7 @@
 package com.xyyh.cloud.auth.server.dto;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
@@ -70,19 +71,20 @@ public class ClientDetailsDto implements ClientDetails, Dto {
 		return null;
 	}
 
+	// 这里必须返回一个非null对象
 	@Override
 	public Collection<GrantedAuthority> getAuthorities() {
-		return null;
+		return Collections.emptySet();
 	}
 
 	@Override
 	public Integer getAccessTokenValiditySeconds() {
-		return 3600;
+		return null;
 	}
 
 	@Override
 	public Integer getRefreshTokenValiditySeconds() {
-		return 3600;
+		return null;
 	}
 
 	@Override
@@ -92,9 +94,9 @@ public class ClientDetailsDto implements ClientDetails, Dto {
 
 	@Override
 	public Map<String, Object> getAdditionalInformation() {
-		return null;
+		return Collections.emptyMap();
 	}
-
+	
 	public void setId(String id) {
 		this.id = id;
 	}

@@ -19,10 +19,10 @@ public class TestController {
 	@GetMapping
 	public String test() {
 		ResponseEntity<Object> response = template.getForEntity("http://localhost:8080/user", Object.class);
-		ResponseEntity<Object> response2 = template.getForEntity("http://localhost:8081/test", Object.class);
+//		ResponseEntity<Object> response2 = template.getForEntity("http://localhost:8081/test", Object.class);
 
 		System.out.println(response);
-		return "test=" + response.getBody().toString() + "\r\n  test2=" + response2.getBody();
+		return "test=" + response.getBody().toString() + "\r\n  test2=" ;//+ response2.getBody();
 	}
 
 }

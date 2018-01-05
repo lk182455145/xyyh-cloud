@@ -7,15 +7,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
-
-import com.xyyh.cloud.auth.server.services.impl.ClientDetailsServiceImpl;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -42,14 +38,13 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-//		// clients.configure(builder);
-//		clients.inMemory()
-//				.withClient("client")
-//				.secret("test")
-//				.authorizedGrantTypes("authorization_code")
-//				.scopes("app", "cas")
-//				// 是否启用自动授权
-//				.autoApprove(false).autoApprove("cas");
+		// clients.inMemory()
+		// .withClient("client")
+		// .secret("test")
+		// .authorizedGrantTypes("authorization_code")
+		// .scopes("app", "cas")
+		// // 是否启用自动授权
+		// .autoApprove(false).autoApprove("cas");
 		log.info("use clientDetailsService" + clientDetailsService);
 		clients.withClientDetails(clientDetailsService);
 	}
@@ -74,8 +69,8 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 		return converter;
 	}
 
-//	@Bean
-//	public ClientDetailsServiceImpl clientDetailsService() {
-//		return new ClientDetailsServiceImpl();
-//	}
+	// @Bean
+	// public ClientDetailsServiceImpl clientDetailsService() {
+	// return new ClientDetailsServiceImpl();
+	// }
 }

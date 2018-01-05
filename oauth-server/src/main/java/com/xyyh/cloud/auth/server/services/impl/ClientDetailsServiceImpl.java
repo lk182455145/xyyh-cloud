@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.xyyh.cloud.auth.server.converter.ClientDetailsConverter;
+import com.xyyh.cloud.auth.server.dto.ClientDetailsDto;
 import com.xyyh.cloud.auth.server.entity.ClientDetailsEntity;
 import com.xyyh.cloud.auth.server.repository.ClientDetailsRepository;
 
@@ -25,7 +26,9 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
 	@Override
 	@Transactional
 	public ClientDetails loadClientByClientId(String clientId) throws ClientRegistrationException {
-		return convert.toDto(findOne(clientId));
+		ClientDetailsDto dto=
+		  convert.toDto(findOne(clientId));
+		return dto;
 	}
 
 	public ClientDetailsEntity findOne(String clientId) {
